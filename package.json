@@ -1,0 +1,17 @@
+{
+    "name": "website",
+    "version": "1.0.0",
+    "description": "A package for my website.",
+    "scripts": {
+        "dev": "vuepress dev src",
+        "build": "vuepress build --dest public src"
+    },
+    "repository": "git+ssh://git@github.com/GNQG/website.git",
+    "author": "GNQG <my.t.gnq+dev@gmail.com>",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "private": true,
+    "devDependencies": {
+        "eslint": "^5.15.3",
+        "vuepress": "^1.0.0-alpha.44"
+    }
+}
