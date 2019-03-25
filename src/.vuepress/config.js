@@ -2,6 +2,7 @@ module.exports = {
     title: "website",
     description: "by ginkgo",
     plugins: [
+        "@vuepress/last-updated",
         [
             require("./plugins/my-blog"),
             {
@@ -19,6 +20,6 @@ module.exports = {
             { text: "blog", link: "/blog/" }
         ],
         repo: "https://github.com/GNQG/website",
-        repoLabel: "Repository"
+        repoLabel: "Repository",
     }
 };

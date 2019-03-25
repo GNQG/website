@@ -11,6 +11,7 @@
     "license": "SEE LICENSE IN LICENSE.md",
     "private": true,
     "devDependencies": {
+        "@vuepress/plugin-last-updated": "^1.0.0-alpha.44",
         "eslint": "^5.15.3",
         "vuepress": "^1.0.0-alpha.44"
     }
