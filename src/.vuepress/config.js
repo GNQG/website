@@ -21,5 +21,6 @@ module.exports = {
         ],
         repo: "https://github.com/GNQG/website",
         repoLabel: "Repository",
+        editLinks: true
     }
 };
