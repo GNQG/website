@@ -22,5 +22,12 @@ module.exports = {
         repo: "https://github.com/GNQG/website",
         repoLabel: "Repository",
         editLinks: true
+    },
+    markdown: {
+        extendMarkdown: md => {
+            md.use(require("markdown-it-texmath").use(require("katex")), {
+                delimiters: "dollars"
+            });
+        }
     }
 };
