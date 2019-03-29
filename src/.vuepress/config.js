@@ -1,5 +1,5 @@
 module.exports = {
-    title: "website",
+    title: "ginkgo-web",
     description: "by ginkgo",
     plugins: [
         "@vuepress/last-updated",
