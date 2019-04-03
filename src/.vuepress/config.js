@@ -1,3 +1,5 @@
+const katex = require("katex");
+
 module.exports = {
     title: "ginkgo-web",
     description: "by ginkgo",
@@ -25,9 +27,20 @@ module.exports = {
     },
     markdown: {
         extendMarkdown: md => {
-            md.use(require("markdown-it-texmath").use(require("katex")), {
+            md.use(require("markdown-it-texmath").use(katex), {
                 delimiters: "dollars"
             });
         }
-    }
+    },
+    head: [
+        [
+            "link",
+            {
+                rel: "stylesheet",
+                href: `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/${
+                    katex.version
+                }/katex.min.css`
+            }
+        ]
+    ]
 };
