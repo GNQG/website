@@ -8,5 +8,11 @@
             "use": "@now/static-build",
             "config": { "distDir": "public" }
         }
+    ],
+    "routes": [
+        {
+            "src": "/assets/.+",
+            "headers": { "cache-control": "maxage=31557600" }
+        }
     ]
 }
