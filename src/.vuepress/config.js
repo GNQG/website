@@ -6,7 +6,7 @@ module.exports = {
     plugins: [
         "@vuepress/last-updated",
         [
-            require("./plugins/my-blog"),
+            "@vuepress/blog",
             {
                 postsDir: "blog/_posts",
                 categoryIndexPageUrl: "/blog/category/",

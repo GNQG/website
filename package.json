@@ -13,6 +13,7 @@
     "license": "SEE LICENSE IN LICENSE.md",
     "private": true,
     "devDependencies": {
+        "@vuepress/plugin-blog": "file:plugins/my-blog",
         "@vuepress/plugin-last-updated": "^1.0.0",
         "eslint": "^5.15.3",
         "http-server": "^0.11.1",

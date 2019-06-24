@@ -37,7 +37,7 @@
 
 ## License notice for third-party files
 
-- files under "src/.vuepress/plugins/my-blog/" use codes from [@vuepress/plugin-blog](https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/plugin-blog)
+- files under "plugins/my-blog/" use codes from [@vuepress/plugin-blog](https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/plugin-blog)
 
     The MIT License (MIT)
 
