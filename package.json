@@ -6,6 +6,9 @@
         "dev": "vuepress dev src",
         "server": "vuepress build --dest public src && http-server public -s",
         "build": "vuepress build --dest public src",
+        "postinstall": "yarn install:plugin && yarn build:plugin",
+        "build:plugin": "cd src/.vuepress/plugins/my-blog && yarn build",
+        "install:plugin": "cd src/.vuepress/plugins/my-blog && yarn || echo \"[NOTE install:plugin] Ignored errors\"",
         "now-build": "yarn build"
     },
     "repository": "git+ssh://git@github.com/GNQG/website.git",
@@ -13,7 +16,6 @@
     "license": "SEE LICENSE IN LICENSE.md",
     "private": true,
     "devDependencies": {
-        "@vuepress/plugin-blog": "file:plugins/my-blog",
         "@vuepress/plugin-last-updated": "^1.0.0",
         "eslint": "^5.15.3",
         "http-server": "^0.11.1",

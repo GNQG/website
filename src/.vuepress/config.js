@@ -6,12 +6,40 @@ module.exports = {
     plugins: [
         "@vuepress/last-updated",
         [
-            "@vuepress/blog",
+            require("./plugins/my-blog"),
             {
-                postsDir: "blog/_posts",
-                categoryIndexPageUrl: "/blog/category/",
-                tagIndexPageUrl: "/blog/tag/",
-                permalink: "/blog/entry/:slug"
+                directories: [
+                    {
+                        id: "posts",
+                        dirname: "blog/_posts",
+                        path: "/blog/",
+                        itemPermalink: "/blog/:slug",
+                        //layout: "BlogHome"
+                        pagination: {
+                            perPagePosts: 2
+                        }
+                    }
+                ],
+                frontmatters: [
+                    {
+                        id: "tag",
+                        keys: ["tag"],
+                        path: "/blog/tag/",
+                        layout: "Tags",
+                        pagination: {
+                            perPagePosts: 2
+                        }
+                    },
+                    {
+                        id: "category",
+                        keys: ["category"],
+                        path: "/blog/category/",
+                        layout: "Tags",
+                        pagination: {
+                            perPagePosts: 2
+                        }
+                    }
+                ]
             }
         ]
     ],
