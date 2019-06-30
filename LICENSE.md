@@ -37,11 +37,11 @@
 
 ## License notice for third-party files
 
-- files under "plugins/my-blog/" use codes from [@vuepress/plugin-blog](https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/plugin-blog)
+- files under "src/.vuepress/plugins/my-blog/" use codes from [@vuepress/plugin-blog](https://github.com/ulivz/vuepress-plugin-blog)
 
     The MIT License (MIT)
 
-    Copyright (c) 2018-present, Yuxi (Evan) You
+    Copyright (c) ULIVZ <chl814@foxmail.com> (https://github.com/ulivz)
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
