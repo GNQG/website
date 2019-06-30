@@ -62,7 +62,6 @@ jobs:
           command: |
             ~/.yarn/bin/now --token=$NOW_TOKEN
             ~/.yarn/bin/now --token=$NOW_TOKEN alias
-
 workflows:
   publish:
     jobs:
