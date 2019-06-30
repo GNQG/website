@@ -4,15 +4,19 @@
     "alias": "ginkgo.now.sh",
     "builds": [
         {
-            "src": "package.json",
-            "use": "@now/static-build",
-            "config": { "distDir": "public" }
+            "src": "public/**/*",
+            "use": "@now/static"
         }
     ],
     "routes": [
         {
             "src": "/assets/.+",
-            "headers": { "cache-control": "maxage=31557600" }
+            "headers": { "cache-control": "maxage=31557600" },
+            "continue": true
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/public/$1"
         }
     ]
 }
