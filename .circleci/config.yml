@@ -60,8 +60,7 @@ jobs:
       - run:
           name: Deploy to Now.
           command: |
-            ~/.yarn/bin/now --token=$NOW_TOKEN
-            ~/.yarn/bin/now --token=$NOW_TOKEN alias
+            ~/.yarn/bin/now --token=$NOW_TOKEN --target production 
 workflows:
   publish:
     jobs:
