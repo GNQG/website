@@ -55,12 +55,11 @@ jobs:
       - run:
           name: Install dependencies for deployment.
           command: |
-            yarn config set prefix ~/.yarn
             yarn global add now
       - run:
           name: Deploy to Now.
           command: |
-            ~/.yarn/bin/now --token=$NOW_TOKEN --target production 
+            $(yarn global bin)/now --token=$NOW_TOKEN --target production 
 workflows:
   publish:
     jobs:
