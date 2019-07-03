@@ -1,43 +1,29 @@
 version: 2.1
-executors:
-  default:
-    working_directory: ~/workdir
-    docker:
-      - image: circleci/node:latest
-commands:
-  yarn_restore:
-    steps:
-      - restore_cache:
-          keys:
-            - >-
-              yarn-packages-{{
-              checksum "yarn.lock"
-              }}-{{
-              checksum "src/.vuepress/plugins/my-blog/yarn.lock"
-              }}
-  yarn_save:
-    steps:
-      - save_cache:
-          name: Save yarn package Cache.
-          key: >-
-              yarn-packages-{{
-              checksum "yarn.lock"
-              }}-{{
-              checksum "src/.vuepress/plugins/my-blog/yarn.lock"
-              }}
-          paths:
-            - ~/.cache/yarn
+orbs:
+  node: circleci/node@1.1.2
 jobs:
   build:
-    executor: default
+    executor:
+      name: node/default
+    working_directory: ~/project
     steps:
       - checkout
-      - yarn_restore
-      - run:
-          name: Install dependencies.
-          command: |
-            yarn --frozen-lockfile
-      - yarn_save
+      - node/with-cache:
+          dir: ./node_modules
+          cache-key: ./yarn.lock
+          steps:
+            - run:
+                name: Install core
+                command: |
+                  yarn --frozen-lockfile
+      - node/with-cache:
+          dir: ./src/.vuepress/plugins/my-blog/node_modules
+          cache-key: ./src/.vuepress/plugins/my-blog/package.json
+          steps:
+            - run:
+                name: Install local plugin
+                command: |
+                  yarn install:plugin && yarn build:plugin
       - run:
           name: Generate pages.
           command: |
@@ -48,7 +34,9 @@ jobs:
             - public
             - now.json
   deploy:
-    executor: default
+    executor:
+      name: node/default
+    working_directory: ~/project
     steps:
       - attach_workspace:
           at: .

@@ -6,7 +6,6 @@
         "dev": "vuepress dev src",
         "server": "vuepress build --dest public src && http-server public -s",
         "build": "vuepress build --dest public src",
-        "postinstall": "yarn install:plugin && yarn build:plugin",
         "build:plugin": "cd src/.vuepress/plugins/my-blog && yarn build || echo \"[NOTE build:plugin] Ignored errors\"",
         "install:plugin": "cd src/.vuepress/plugins/my-blog && yarn"
     },
