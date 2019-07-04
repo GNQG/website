@@ -6,7 +6,7 @@ module.exports = {
     plugins: [
         "@vuepress/last-updated",
         [
-            require("./plugins/my-blog"),
+            require("./plugins/blog"),
             {
                 directories: [
                     {

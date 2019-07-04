@@ -6,8 +6,8 @@
         "dev": "vuepress dev src",
         "server": "vuepress build --dest public src && http-server public -s",
         "build": "vuepress build --dest public src",
-        "build:plugin": "cd src/.vuepress/plugins/my-blog && yarn build || echo \"[NOTE build:plugin] Ignored errors\"",
-        "install:plugin": "cd src/.vuepress/plugins/my-blog && yarn"
+        "build:plugin": "cd src/.vuepress/plugins/blog && yarn build || echo \"[NOTE build:plugin] Ignored errors\"",
+        "install:plugin": "cd src/.vuepress/plugins/blog && yarn"
     },
     "repository": "git+ssh://git@github.com/GNQG/website.git",
     "author": "GNQG <my.t.gnq+dev@gmail.com>",

@@ -1,0 +1,3 @@
+[submodule "src/.vuepress/plugins/blog"]
+	path = src/.vuepress/plugins/blog
+	url = git@github.com:GNQG/vuepress-plugin-blog.git

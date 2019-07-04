@@ -8,6 +8,10 @@ jobs:
     working_directory: ~/project
     steps:
       - checkout
+      - run:
+          name: Fetch submodules
+          command: |
+            git submodule update --init
       - node/with-cache:
           dir: ./node_modules
           cache-key: ./yarn.lock
@@ -17,8 +21,8 @@ jobs:
                 command: |
                   yarn --frozen-lockfile
       - node/with-cache:
-          dir: ./src/.vuepress/plugins/my-blog/node_modules
-          cache-key: ./src/.vuepress/plugins/my-blog/package.json
+          dir: ./src/.vuepress/plugins/blog/node_modules
+          cache-key: ./src/.vuepress/plugins/blog/package.json
           steps:
             - run:
                 name: Install local plugin
