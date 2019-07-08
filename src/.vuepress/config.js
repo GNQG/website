@@ -16,7 +16,7 @@ module.exports = {
                         itemPermalink: "/blog/:slug",
                         //layout: "BlogHome"
                         pagination: {
-                            perPagePosts: 2
+                             lengthPerPage: 2
                         }
                     }
                 ],
@@ -27,7 +27,7 @@ module.exports = {
                         path: "/blog/tag/",
                         layout: "Tags",
                         pagination: {
-                            perPagePosts: 2
+                             lengthPerPage: 2
                         }
                     },
                     {
@@ -36,7 +36,7 @@ module.exports = {
                         path: "/blog/category/",
                         layout: "Tags",
                         pagination: {
-                            perPagePosts: 2
+                             lengthPerPage: 2
                         }
                     }
                 ]
