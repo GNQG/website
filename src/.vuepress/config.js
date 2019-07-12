@@ -9,7 +9,7 @@ module.exports = {
             "@vuepress/last-updated",
             {
                 transformer: (timestamp, _lang) => {
-                    return moment.tz(timestamp, "Asia/Tokyo").format()
+                    return moment.tz(timestamp, "Asia/Tokyo").format();
                 }
             }
         ],
@@ -19,32 +19,38 @@ module.exports = {
                 directories: [
                     {
                         id: "posts",
+                        name: "blog",
                         dirname: "blog/_posts",
                         path: "/blog/",
-                        itemPermalink: "/blog/:slug",
-                        //layout: "BlogHome"
+                        itemPermalink: "/blog/:slug/",
+                        layout: "DirectoryIndex",
                         pagination: {
-                             lengthPerPage: 2
+                            lengthPerPage: 2,
+                            layout: "DirectoryPagination"
                         }
                     }
                 ],
                 frontmatters: [
                     {
                         id: "tag",
+                        name: "tag",
                         keys: ["tag"],
                         path: "/blog/tag/",
-                        layout: "Tags",
+                        layout: "Tag",
                         pagination: {
-                             lengthPerPage: 2
+                            lengthPerPage: 4,
+                            layout: "FrontmatterPagination"
                         }
                     },
                     {
                         id: "category",
+                        name: "category",
                         keys: ["category"],
                         path: "/blog/category/",
-                        layout: "Tags",
+                        layout: "Category",
                         pagination: {
-                             lengthPerPage: 2
+                            lengthPerPage: 4,
+                            layout: "FrontmatterPagination"
                         }
                     }
                 ]
