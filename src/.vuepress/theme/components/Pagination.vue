@@ -1,6 +1,6 @@
 <template>
     <div class="center">
-        <ul v-if="$pagination" class="pagination-container">
+        <ul v-if="$pagination.length > 0" class="pagination-container">
             <!-- left arrow -->
             <router-link v-if="$pagination.hasPrev" :to="$pagination.prevLink">
                 <li class="page-link">❮</li>
@@ -15,26 +15,30 @@
             </router-link>
             <li v-else class="page-active">1</li>
             <!-- 2 - (end-1) -->
-            <li v-if="hasLeftOmission" class="page-disabled">⋯</li>
-            <span v-if="displayAll" v-for="index in $pagination.length-2" :key="index+1">
-                <router-link
-                    v-if="$pagination.paginationIndex !== index"
-                    :to="$pagination.getSpecificPageLink(index)"
-                >
-                    <li class="page-link">{{ index+1 }}</li>
-                </router-link>
-                <li v-else class="page-active">{{ index+1 }}</li>
-            </span>
-            <span v-if="!displayAll" v-for="index in displayRange">
-                <router-link
-                    v-if="$pagination.paginationIndex !== index"
-                    :to="$pagination.getSpecificPageLink(index)"
-                >
-                    <li class="page-link">{{ index+1 }}</li>
-                </router-link>
-                <li v-else class="page-active">{{ index+1 }}</li>
-            </span>
-            <li v-if="hasRightOmission" class="page-disabled">⋯</li>
+            <li v-if="!displayAll && hasLeftOmission" class="page-disabled">⋯</li>
+            <template v-if="displayAll && $pagination.length > 2">
+                <span v-for="index in $pagination.length-2" :key="index+1">
+                    <router-link
+                        v-if="$pagination.paginationIndex !== index"
+                        :to="$pagination.getSpecificPageLink(index)"
+                    >
+                        <li class="page-link">{{ index+1 }}</li>
+                    </router-link>
+                    <li v-else class="page-active">{{ index+1 }}</li>
+                </span>
+            </template>
+            <template v-if="!displayAll && $pagination.length > 2">
+                <span v-for="index in displayRange">
+                    <router-link
+                        v-if="$pagination.paginationIndex !== index"
+                        :to="$pagination.getSpecificPageLink(index)"
+                    >
+                        <li class="page-link">{{ index+1 }}</li>
+                    </router-link>
+                    <li v-else class="page-active">{{ index+1 }}</li>
+                </span>
+            </template>
+            <li v-if="!displayAll && hasRightOmission" class="page-disabled">⋯</li>
             <!-- end -->
             <router-link
                 v-if="$pagination.length > 1 && $pagination.paginationIndex !== $pagination.length-1"
@@ -42,7 +46,7 @@
             >
                 <li class="page-link">{{$pagination.length}}</li>
             </router-link>
-            <span v-else="$pagination.length > 1">
+            <span v-else-if="$pagination.length > 1">
                 <li class="page-active">{{$pagination.length}}</li>
             </span>
             <!-- Right arrow -->
@@ -58,7 +62,7 @@
 export default {
     computed: {
         displayAll() {
-            return this.$pagination.length <= 5;
+            return this.$pagination.length >= 3 && this.$pagination.length <= 5;
         },
         hasLeftOmission() {
             return this.$pagination.paginationIndex >= 3;
