@@ -1,10 +1,18 @@
 const katex = require("katex");
+const moment = require("moment-timezone");
 
 module.exports = {
     title: "ginkgo-web",
     description: "by ginkgo",
     plugins: [
-        "@vuepress/last-updated",
+        [
+            "@vuepress/last-updated",
+            {
+                transformer: (timestamp, _lang) => {
+                    return moment.tz(timestamp, "Asia/Tokyo").format()
+                }
+            }
+        ],
         [
             require("./plugins/blog"),
             {
