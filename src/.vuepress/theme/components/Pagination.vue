@@ -1,100 +1,73 @@
 <template>
     <div class="center">
-        <ul v-if="$pagination.length > 0" class="pagination-container">
-            <!-- left arrow -->
-            <router-link v-if="$pagination.hasPrev" :to="$pagination.prevLink">
-                <li class="page-link">❮</li>
-            </router-link>
-            <li v-else class="page-disabled">❮</li>
+        <ul v-if="pageLength > 0" class="pagination-container">
+            <!-- head -->
+            <PaginationButton
+                class="pgb-mobile-narrow"
+                label="❮❮"
+                :index="0"
+                :disabled="!$pagination.hasPrev"
+            />
+            <!-- prev -->
+            <PaginationButton label="❮" :index="currentIndex - 1" :disabled="!$pagination.hasPrev" />
             <!-- 1 -->
-            <router-link
-                v-if="$pagination.paginationIndex !== 0"
-                :to="$pagination.getSpecificPageLink(0)"
-            >
-                <li class="page-link">1</li>
-            </router-link>
-            <li v-else class="page-active">1</li>
-            <!-- 2 - (end-1) -->
-            <li v-if="!displayAll && hasLeftOmission" class="page-disabled">⋯</li>
-            <template v-if="displayAll && $pagination.length > 2">
-                <span v-for="index in $pagination.length-2" :key="index+1">
-                    <router-link
-                        v-if="$pagination.paginationIndex !== index"
-                        :to="$pagination.getSpecificPageLink(index)"
-                    >
-                        <li class="page-link">{{ index+1 }}</li>
-                    </router-link>
-                    <li v-else class="page-active">{{ index+1 }}</li>
-                </span>
-            </template>
-            <template v-if="!displayAll && $pagination.length > 2">
-                <span v-for="index in displayRange">
-                    <router-link
-                        v-if="$pagination.paginationIndex !== index"
-                        :to="$pagination.getSpecificPageLink(index)"
-                    >
-                        <li class="page-link">{{ index+1 }}</li>
-                    </router-link>
-                    <li v-else class="page-active">{{ index+1 }}</li>
-                </span>
-            </template>
-            <li v-if="!displayAll && hasRightOmission" class="page-disabled">⋯</li>
+            <PaginationButton class="pgb-wide" :index="0" />
+            <PaginationButton class="pgb-wide" v-if="hasLeftOmission" label="⋯" disabled />
+            <!-- 2 - (end - 1) -->
+            <PaginationButton class="pgb-wide" v-for="index in displayRange" :index="index" />
+            <PaginationButton class="pgb-wide" v-if="hasRightOmission" label="⋯" disabled />
             <!-- end -->
-            <router-link
-                v-if="$pagination.length > 1 && $pagination.paginationIndex !== $pagination.length-1"
-                :to="$pagination.getSpecificPageLink($pagination.length-1)"
-            >
-                <li class="page-link">{{$pagination.length}}</li>
-            </router-link>
-            <span v-else-if="$pagination.length > 1">
-                <li class="page-active">{{$pagination.length}}</li>
-            </span>
-            <!-- Right arrow -->
-            <router-link v-if="$pagination.hasNext" :to="$pagination.nextLink">
-                <li class="page-link">❯</li>
-            </router-link>
-            <li v-else class="page-disabled">❯</li>
+            <PaginationButton class="pgb-wide" v-if="pageLength > 1" :index="pageLength - 1" />
+            <!-- next -->
+            <PaginationButton label="❯" :index="currentIndex + 1" :disabled="!$pagination.hasNext" />
+            <!-- tail -->
+            <PaginationButton
+                class="pgb-mobile-narrow"
+                label="❯❯"
+                :index="pageLength - 1"
+                :disabled="!$pagination.hasNext"
+            />
         </ul>
     </div>
 </template>
 
 <script>
+import PaginationButton from "./PaginationButton.vue";
 export default {
+    components: { PaginationButton },
     computed: {
-        displayAll() {
-            return this.$pagination.length >= 3 && this.$pagination.length <= 5;
+        currentIndex() {
+            return this.$pagination.paginationIndex;
+        },
+        pageLength() {
+            return this.$pagination.length;
         },
         hasLeftOmission() {
-            return this.$pagination.paginationIndex >= 3;
+            return this.currentIndex >= 3;
         },
         hasRightOmission() {
-            return (
-                this.$pagination.paginationIndex <= this.$pagination.length - 4
-            );
+            return this.currentIndex <= this.pageLength - 4;
         },
         displayRange() {
-            if (this.$pagination.paginationIndex <= 1) {
+            if (this.pageLength <= 5) {
+                return [...Array(Math.max(0, this.pageLength - 2)).keys()].map(
+                    i => i + 1
+                );
+            } else if (this.currentIndex <= 1) {
                 return [1, 2];
-            } else if (
-                this.$pagination.paginationIndex >=
-                this.$pagination.length - 2
-            ) {
-                return [
-                    this.$pagination.length - 3,
-                    this.$pagination.length - 2
-                ];
+            } else if (this.currentIndex >= this.pageLength - 2) {
+                return [this.pageLength - 3, this.pageLength - 2];
             } else {
                 return [
-                    this.$pagination.paginationIndex - 1,
-                    this.$pagination.paginationIndex,
-                    this.$pagination.paginationIndex + 1
+                    this.currentIndex - 1,
+                    this.currentIndex,
+                    this.currentIndex + 1
                 ];
             }
         }
     }
 };
 </script>
-
 
 <style lang="stylus">
 .center
@@ -109,23 +82,17 @@ export default {
     user-select none
     padding 0
 
-    .page-active, .page-disabled, .page-link
-        display inline-block
-        padding 0.25rem 0.5rem
-        border 1px solid #ddd
-        list-style-type none
+    .page-button
         float left
-        width 1.25rem
-        height 1.75rem
 
-    span:hover:not(.page-active):not(.page-disabled)
-        background-color #ded
+    .pgb-mobile-narrow
+        visibility hidden
 
-    .page-active
-        background-color $accentColor
-        color #eee
+    @media (max-width: $MQMobileNarrow)
+        .pgb-mobile-narrow
+            visibility visible
 
-    .page-disabled
-        background-color #eee
-        color #bbb
+        .pgb-wide
+            :not(.pgb-active)
+                display none
 </style>
