@@ -1,14 +1,11 @@
 <template>
-    <span class="pgb-wrapper">
-        <router-link v-if="isAvailable" :to="link">
-            <li class="page-button pgb-link">{{ label || index+1 }}</li>
-        </router-link>
-        <li
-            v-else
-            class="page-button"
-            :class="disabled ? 'pgb-disabled' : 'pgb-active'"
-        >{{ label || index+1 }}</li>
-    </span>
+    <li
+        class="page-button"
+        :class="isAvailable ? 'pgb-link' : disabled ? 'pgb-disabled' : 'pgb-active'"
+    >
+        <router-link class="pgb-inner" v-if="isAvailable" :to="link">{{ label || index+1 }}</router-link>
+        <span class="pgb-inner" v-else>{{ label || index+1 }}</span>
+    </li>
 </template>
 
 <script>
@@ -34,13 +31,16 @@ export default {
 </script>
 
 <style lang="stylus">
-.pgb-link, .pgb-disabled, .pgb-active
+.page-button
     display inline-block
-    padding 0.25rem 0.5rem
     border 1px solid #ddd
     list-style-type none
-    width 1.25rem
-    height 1.75rem
+
+    .pgb-inner
+        display block
+        width 1.25rem
+        height 1.75rem
+        padding 0.25rem 0.5rem
 
 .pgb-link:hover
     background-color #ded

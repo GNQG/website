@@ -86,13 +86,12 @@ export default {
         float left
 
     .pgb-mobile-narrow
-        visibility hidden
+        display none
 
     @media (max-width: $MQMobileNarrow)
         .pgb-mobile-narrow
-            visibility visible
+            display inline-block
 
-        .pgb-wide
-            :not(.pgb-active)
-                display none
+        .pgb-wide:not(.pgb-active)
+            display none
 </style>
