@@ -43,10 +43,10 @@ export default {
             return this.$pagination.length;
         },
         hasLeftOmission() {
-            return this.currentIndex >= 3;
+            return this.pageLength > 5 && this.currentIndex >= 3;
         },
         hasRightOmission() {
-            return this.currentIndex <= this.pageLength - 4;
+            return this.pageLength > 5 && this.currentIndex <= this.pageLength - 4;
         },
         displayRange() {
             if (this.pageLength <= 5) {
