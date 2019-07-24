@@ -20,6 +20,7 @@
         "katex": "^0.10.1",
         "markdown-it-texmath": "^0.5.5",
         "moment-timezone": "^0.5.26",
-        "vuepress": "^1.0.0"
+        "vuepress": "^1.0.0",
+        "vuepress-plugin-remote-url": "^0.1.3"
     }
 }

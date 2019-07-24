@@ -55,7 +55,8 @@ module.exports = {
                     }
                 ]
             }
-        ]
+        ],
+        "remote-url"
     ],
     themeConfig: {
         nav: [

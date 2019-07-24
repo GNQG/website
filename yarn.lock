@@ -3350,6 +3350,26 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
+git-repo-info@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/git-repo-info/-/git-repo-info-2.1.0.tgz#13d1f753c75bc2994432e65a71e35377ff563813"
+  integrity sha512-+kigfDB7j3W80f74BoOUX+lKOmf4pR3/i2Ww6baKTCPe2hD4FRdjhV3s4P5Dy0Tak1uY1891QhKoYNtnyX2VvA==
+
+git-up@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/git-up/-/git-up-4.0.1.tgz#cb2ef086653640e721d2042fe3104857d89007c0"
+  integrity sha512-LFTZZrBlrCrGCG07/dm1aCjjpL1z9L3+5aEeI9SBhAqSc+kiA9Or1bgZhQFNppJX6h/f5McrvJt1mQXTFm6Qrw==
+  dependencies:
+    is-ssh "^1.3.0"
+    parse-url "^5.0.0"
+
+git-url-parse@^11.1.2:
+  version "11.1.2"
+  resolved "https://registry.yarnpkg.com/git-url-parse/-/git-url-parse-11.1.2.tgz#aff1a897c36cc93699270587bea3dbcbbb95de67"
+  integrity sha512-gZeLVGY8QVKMIkckncX+iCq2/L8PlwncvDFKiWkBn9EtCfYDbliRTTp6qzyQ1VMdITUfq7293zDzfpjdiGASSQ==
+  dependencies:
+    git-up "^4.0.0"
+
 glob-parent@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-3.1.0.tgz#9e6af6299d8d3bd2bd40430832bd113df906c5ae"
@@ -4117,6 +4137,13 @@ is-resolvable@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-resolvable/-/is-resolvable-1.1.0.tgz#fb18f87ce1feb925169c9a407c19318a3206ed88"
   integrity sha512-qgDYXFSR5WvEfuS5dMj6oTMEbrrSaM0CrFk2Yiq/gXnBvD9pMa2jGXxyhGLfvhZpuMZe18CJpFxAt3CRs42NMg==
+
+is-ssh@^1.3.0:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/is-ssh/-/is-ssh-1.3.1.tgz#f349a8cadd24e65298037a522cf7520f2e81a0f3"
+  integrity sha512-0eRIASHZt1E68/ixClI8bp2YK2wmBPVWEismTs6M+M099jKgrzl/3E976zIbImSIob48N2/XGe9y7ZiYdImSlg==
+  dependencies:
+    protocols "^1.1.0"
 
 is-stream@^1.1.0:
   version "1.1.0"
@@ -4991,7 +5018,7 @@ normalize-url@^2.0.1:
     query-string "^5.0.1"
     sort-keys "^2.0.0"
 
-normalize-url@^3.0.0:
+normalize-url@^3.0.0, normalize-url@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
@@ -5336,6 +5363,24 @@ parse-json@^4.0.0:
   dependencies:
     error-ex "^1.3.1"
     json-parse-better-errors "^1.0.1"
+
+parse-path@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/parse-path/-/parse-path-4.0.1.tgz#0ec769704949778cb3b8eda5e994c32073a1adff"
+  integrity sha512-d7yhga0Oc+PwNXDvQ0Jv1BuWkLVPXcAoQ/WREgd6vNNoKYaW52KI+RdOFjI63wjkmps9yUE8VS4veP+AgpQ/hA==
+  dependencies:
+    is-ssh "^1.3.0"
+    protocols "^1.4.0"
+
+parse-url@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/parse-url/-/parse-url-5.0.1.tgz#99c4084fc11be14141efa41b3d117a96fcb9527f"
+  integrity sha512-flNUPP27r3vJpROi0/R3/2efgKkyXqnXwyP1KQ2U0SfFRgdizOdWfvrrvJg1LuOoxs7GQhmxJlq23IpQ/BkByg==
+  dependencies:
+    is-ssh "^1.3.0"
+    normalize-url "^3.3.0"
+    parse-path "^4.0.0"
+    protocols "^1.4.0"
 
 parseurl@~1.3.2, parseurl@~1.3.3:
   version "1.3.3"
@@ -5875,6 +5920,11 @@ promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
+
+protocols@^1.1.0, protocols@^1.4.0:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/protocols/-/protocols-1.4.7.tgz#95f788a4f0e979b291ffefcf5636ad113d037d32"
+  integrity sha512-Fx65lf9/YDn3hUX08XUc0J8rSux36rEsyiv21ZGUC1mOyeM3lTRpZLcrm8aAolzS4itwVfm7TAPyxC2E5zd6xg==
 
 proxy-addr@~2.0.5:
   version "2.0.5"
@@ -7413,6 +7463,14 @@ vuepress-plugin-container@^2.0.0:
   integrity sha512-SrGYYT7lkie7xlIlAVhn+9sDW42MytNCoxWL/2uDr+q9wZA4h1uYlQvfc2DVjy+FsM9PPPSslkeo/zCpYVY82g==
   dependencies:
     markdown-it-container "^2.0.0"
+
+vuepress-plugin-remote-url@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-remote-url/-/vuepress-plugin-remote-url-0.1.3.tgz#db028cdab255d6785ef783af59bd1525cf1ea0c7"
+  integrity sha512-60dT8whE46JsUkC87ys4LkKjrmC6etSadyxMv0Y1mlg0OIg/VtdspAEWuuMbTCCWfbzF7zUX1xAjaJNLwluzPQ==
+  dependencies:
+    git-repo-info "^2.1.0"
+    git-url-parse "^11.1.2"
 
 vuepress@^1.0.0:
   version "1.0.2"
