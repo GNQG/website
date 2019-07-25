@@ -56,9 +56,36 @@ module.exports = {
                 ]
             }
         ],
-        "remote-url"
+        "remote-url",
+        [
+            "seo",
+            {
+                title: ($page, $site, path) => {
+                    return path === "/"
+                        ? $site.title
+                        : ($page.title || $page.frontmatter.title || path) +
+                              " | " +
+                              $site.title;
+                },
+                tags: $page => $page.frontmatter.tag,
+                twitterCard: _ => "summary",
+                type: $page => {
+                    const path = $page.regularPath;
+                    if (path === "/") {
+                        return "website";
+                    } else if (path === "/about/") {
+                        return "profile";
+                    } else if (path.startsWith("/blog/")) {
+                        return $page.layout === "Post" ? "article" : "blog";
+                    } else {
+                        return "article";
+                    }
+                }
+            }
+        ]
     ],
     themeConfig: {
+        domain: "https://ginkgo.now.sh",
         nav: [
             { text: "home", link: "/" },
             { text: "about", link: "/about/" },
