@@ -107,9 +107,7 @@ module.exports = {
             "link",
             {
                 rel: "stylesheet",
-                href: `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/${
-                    katex.version
-                }/katex.min.css`
+                href: `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/${katex.version}/katex.min.css`
             }
         ]
     ]
