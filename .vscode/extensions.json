@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "EditorConfig.EditorConfig",
+        "thisismanta.stylus-supremacy",
+        "esbenp.prettier-vscode",
+        "DavidAnson.vscode-markdownlint"
+    ]
+}

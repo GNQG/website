@@ -1,16 +1,22 @@
 {
-    "files.encoding": "utf8",
-    "files.autoGuessEncoding": false,
     "[javascript]": {
-        "editor.tabSize": 4
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
     },
     "[vue]": {
-        "editor.tabSize": 4
+        "editor.formatOnSave": true
     },
-    "prettier.tabWidth": 4,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
     "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
     "vetur.format.options.tabSize": 4,
     "stylusSupremacy.insertBraces": false,
     "stylusSupremacy.insertColons": false,
-    "stylusSupremacy.insertSemicolons": false,
+    "stylusSupremacy.insertSemicolons": false
 }
