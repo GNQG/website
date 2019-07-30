@@ -1,10 +1,12 @@
 <template>
     <BlogLayoutBase>
-        <h1>{{$page.frontmatter.title}}</h1>
+        <h1>{{ $page.frontmatter.title }}</h1>
         <Pagination />
         <ul id="default-layout">
-            <li v-for="page in $pagination.pages">
-                <router-link class="page-link" :to="page.path">{{page.title }}</router-link>
+            <li v-for="page in $pagination.pages" :key="page">
+                <router-link class="page-link" :to="page.path">{{
+                    page.title
+                }}</router-link>
             </li>
         </ul>
         <Pagination />

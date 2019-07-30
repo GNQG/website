@@ -6,6 +6,8 @@
         "dev": "vuepress dev src",
         "server": "vuepress build --dest public src && http-server public -s",
         "build": "vuepress build --dest public src",
+        "lint": "eslint --ext .js,.vue .",
+        "fix": "eslint --fix --ext .js,.vue .",
         "build:plugin": "cd src/.vuepress/plugins/blog && yarn build",
         "install:plugin": "cd src/.vuepress/plugins/blog && yarn"
     },
@@ -15,6 +17,10 @@
     "private": true,
     "devDependencies": {
         "@vuepress/plugin-last-updated": "^1.0.0",
+        "eslint": "^6.1.0",
+        "eslint-config-prettier": "^6.0.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-vue": "^5.2.3",
         "http-server": "^0.11.1",
         "katex": "^0.10.1",
         "markdown-it-texmath": "^0.5.5",

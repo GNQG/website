@@ -1,8 +1,10 @@
 {
     "recommendations": [
         "EditorConfig.EditorConfig",
-        "thisismanta.stylus-supremacy",
+        "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
+        "octref.vetur",
+        "thisismanta.stylus-supremacy",
         "DavidAnson.vscode-markdownlint"
     ]
 }

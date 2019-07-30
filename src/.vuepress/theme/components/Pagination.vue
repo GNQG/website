@@ -9,17 +9,44 @@
                 :disabled="!$pagination.hasPrev"
             />
             <!-- prev -->
-            <PaginationButton label="❮" :index="currentIndex - 1" :disabled="!$pagination.hasPrev" />
+            <PaginationButton
+                label="❮"
+                :index="currentIndex - 1"
+                :disabled="!$pagination.hasPrev"
+            />
             <!-- 1 -->
             <PaginationButton class="pgb-wide" :index="0" />
-            <PaginationButton class="pgb-wide" v-if="hasLeftOmission" label="⋯" disabled />
+            <PaginationButton
+                class="pgb-wide"
+                v-if="hasLeftOmission"
+                label="⋯"
+                disabled
+            />
             <!-- 2 - (end - 1) -->
-            <PaginationButton class="pgb-wide" v-for="index in displayRange" :index="index" />
-            <PaginationButton class="pgb-wide" v-if="hasRightOmission" label="⋯" disabled />
+            <PaginationButton
+                class="pgb-wide"
+                v-for="index in displayRange"
+                :index="index"
+                :key="index"
+            />
+            <PaginationButton
+                class="pgb-wide"
+                v-if="hasRightOmission"
+                label="⋯"
+                disabled
+            />
             <!-- end -->
-            <PaginationButton class="pgb-wide" v-if="pageLength > 1" :index="pageLength - 1" />
+            <PaginationButton
+                class="pgb-wide"
+                v-if="pageLength > 1"
+                :index="pageLength - 1"
+            />
             <!-- next -->
-            <PaginationButton label="❯" :index="currentIndex + 1" :disabled="!$pagination.hasNext" />
+            <PaginationButton
+                label="❯"
+                :index="currentIndex + 1"
+                :disabled="!$pagination.hasNext"
+            />
             <!-- tail -->
             <PaginationButton
                 class="pgb-mobile-narrow"

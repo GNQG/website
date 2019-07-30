@@ -1,10 +1,14 @@
 <template>
     <li
         class="page-button"
-        :class="isAvailable ? 'pgb-link' : disabled ? 'pgb-disabled' : 'pgb-active'"
+        :class="
+            isAvailable ? 'pgb-link' : disabled ? 'pgb-disabled' : 'pgb-active'
+        "
     >
-        <router-link class="pgb-inner" v-if="isAvailable" :to="link">{{ label || index+1 }}</router-link>
-        <span class="pgb-inner" v-else>{{ label || index+1 }}</span>
+        <router-link class="pgb-inner" v-if="isAvailable" :to="link">{{
+            label || index + 1
+        }}</router-link>
+        <span class="pgb-inner" v-else>{{ label || index + 1 }}</span>
     </li>
 </template>
 

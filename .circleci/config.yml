@@ -29,6 +29,10 @@ jobs:
                 command: |
                   yarn install:plugin && yarn build:plugin
       - run:
+          name: Linting
+          command: |
+            yarn lint
+      - run:
           name: Generate pages.
           command: |
             yarn build
