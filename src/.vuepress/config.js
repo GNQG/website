@@ -2,6 +2,11 @@ const katex = require("katex");
 const moment = require("moment-timezone");
 
 module.exports = {
+    locales: {
+        "/": {
+            lang: "ja" // this will be set as the lang attribute on <html>
+        }
+    },
     title: "ginkgo-web",
     description: "by ginkgo",
     plugins: [
