@@ -28,10 +28,10 @@ module.exports = {
                         dirname: "blog/_posts",
                         path: "/blog/",
                         itemPermalink: "/blog/:slug/",
-                        layout: "DirectoryIndex",
+                        layout: "BlogPager",
                         pagination: {
-                            lengthPerPage: 2,
-                            layout: "DirectoryPagination"
+                            lengthPerPage: 4,
+                            layout: "BlogPager"
                         }
                     }
                 ],
