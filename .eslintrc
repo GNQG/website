@@ -10,7 +10,7 @@
     ],
     "plugins": ["prettier", "vue"],
     "rules": {
-        "prettier/prettier": 2,
+        "prettier/prettier": 1,
         "no-unused-vars": [2, { "argsIgnorePattern": "^_" }]
     }
 }

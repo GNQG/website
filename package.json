@@ -6,7 +6,7 @@
         "dev": "vuepress dev src",
         "server": "vuepress build --dest public src && http-server public -s",
         "build": "vuepress build --dest public src",
-        "lint": "eslint --ext .js,.vue .",
+        "lint": "eslint --rule \"prettier/prettier: 2\" --ext .js,.vue .",
         "fix": "eslint --fix --ext .js,.vue .",
         "build:plugin": "cd src/.vuepress/plugins/blog && yarn build",
         "install:plugin": "cd src/.vuepress/plugins/blog && yarn"
