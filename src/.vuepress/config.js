@@ -31,6 +31,9 @@ module.exports = {
                         layout: "BlogPager",
                         pagination: {
                             lengthPerPage: 4,
+                            getPaginationPageTitle(index, length, _key) {
+                                return `blog (page ${index + 1}/${length})`;
+                            },
                             layout: "BlogPager"
                         }
                     }
@@ -42,9 +45,16 @@ module.exports = {
                         keys: ["tag"],
                         path: "/blog/tag/",
                         layout: "BlogClassifier",
+                        getKeyIndexPageTitle(key) {
+                            return `tag: ${key} | blog`;
+                        },
                         pagination: {
                             lengthPerPage: 4,
-                            layout: "FrontmatterPagination"
+                            getPaginationPageTitle(index, length, key) {
+                                return `tag: ${key} (page ${index +
+                                    1}/${length}) | blog`;
+                            },
+                            layout: "BlogClassifierKeyPager"
                         }
                     },
                     {
@@ -53,9 +63,16 @@ module.exports = {
                         keys: ["category"],
                         path: "/blog/category/",
                         layout: "BlogClassifier",
+                        getKeyIndexPageTitle(key) {
+                            return `category: ${key} | blog`;
+                        },
                         pagination: {
                             lengthPerPage: 4,
-                            layout: "FrontmatterPagination"
+                            getPaginationPageTitle(index, length, key) {
+                                return `category: ${key} (page ${index +
+                                    1}/${length}) | blog`;
+                            },
+                            layout: "BlogClassifierKeyPager"
                         }
                     }
                 ]
