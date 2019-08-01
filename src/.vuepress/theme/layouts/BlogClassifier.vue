@@ -1,12 +1,12 @@
 <template>
     <BlogLayoutBase>
         <h1>{{ $page.frontmatter.title }}</h1>
-        <ul v-if="$tag && $tag.list" id="default-layout">
-            <li v-for="tag in $tag.list" :key="tag.name">
-                <router-link class="page-link" :to="tag.path">{{
-                    tag.name
+        <ul v-if="$frontmatterKey && $frontmatterKey.list" id="default-layout">
+            <li v-for="key in $frontmatterKey.list" :key="key.name">
+                <router-link class="page-link" :to="key.path">{{
+                    key.name
                 }}</router-link>
-                ({{ tag.pages.length }})
+                ({{ key.pages.length }})
             </li>
         </ul>
     </BlogLayoutBase>

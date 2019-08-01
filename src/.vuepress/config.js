@@ -41,7 +41,7 @@ module.exports = {
                         name: "tag",
                         keys: ["tag"],
                         path: "/blog/tag/",
-                        layout: "Tag",
+                        layout: "BlogClassifier",
                         pagination: {
                             lengthPerPage: 4,
                             layout: "FrontmatterPagination"
@@ -52,7 +52,7 @@ module.exports = {
                         name: "category",
                         keys: ["category"],
                         path: "/blog/category/",
-                        layout: "Category",
+                        layout: "BlogClassifier",
                         pagination: {
                             lengthPerPage: 4,
                             layout: "FrontmatterPagination"
