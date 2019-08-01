@@ -7,7 +7,7 @@ module.exports = {
             lang: "ja" // this will be set as the lang attribute on <html>
         }
     },
-    title: "ginkgo-web",
+    title: "gnqg.dev",
     description: "by ginkgo",
     plugins: [
         [
@@ -107,7 +107,7 @@ module.exports = {
         ]
     ],
     themeConfig: {
-        domain: "https://ginkgo.now.sh",
+        domain: "https://gnqg.dev",
         nav: [
             { text: "home", link: "/" },
             { text: "about", link: "/about/" },

@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: Hello world!
+heroText: gnqg.dev
 tagline: by ginkgo
 ---
 
