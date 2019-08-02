@@ -25,7 +25,7 @@ module.exports = {
                     {
                         id: "posts",
                         name: "blog",
-                        dirname: "blog/_posts",
+                        dirname: "_blogposts",
                         path: "/blog/",
                         itemPermalink: "/blog/:slug/",
                         layout: "BlogPager",
