@@ -18,7 +18,7 @@
             </div>
         </div>
         <Pagination />
-        <div>
+        <div v-if="$pagination">
             <BlogCard
                 v-for="page in $pagination.pages"
                 :page="page"
