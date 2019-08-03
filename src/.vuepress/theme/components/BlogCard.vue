@@ -93,7 +93,10 @@ export default {
     .bc-description
         padding 8px
         display inline-block
+        color gray
         background-color white
+        font-style italic
+        font-size 85%
 
     .bc-labeled
         color $accentColor
