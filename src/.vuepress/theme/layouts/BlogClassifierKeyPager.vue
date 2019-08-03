@@ -2,7 +2,7 @@
     <BlogLayoutBase>
         <h1>{{ $page.frontmatter.title }}</h1>
         <Pagination />
-        <div>
+        <div v-if="$pagination">
             <BlogCard
                 v-for="page in $pagination.pages"
                 :page="page"
