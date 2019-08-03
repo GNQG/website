@@ -1,5 +1,5 @@
 <template>
-    <div class="center">
+    <div v-if="$pagination" class="center">
         <ul v-if="pageLength > 0" class="pagination-container">
             <!-- head -->
             <PaginationButton
