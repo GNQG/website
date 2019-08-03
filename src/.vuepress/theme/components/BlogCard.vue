@@ -2,7 +2,7 @@
     <div class="blog-card">
         <div class="bc-head">
             <div class="bc-date left">
-                {{ page.date || page.frontmatter.date || "XXXX-YY-ZZ" }}
+                {{ formattedDate }}
             </div>
             <div class="bc-labeled right">
                 <div class="bc-value">
@@ -49,8 +49,17 @@
 </template>
 
 <script>
+import * as moment from "moment-timezone";
 export default {
-    props: ["page"]
+    props: ["page"],
+    computed: {
+        formattedDate() {
+            const date = this.page.date || this.page.frontmatter.date;
+            return date
+                ? moment.tz(date, "Asia/Tokyo").format("YYYY-MM-DD")
+                : "XXXX-YY-ZZ";
+        }
+    }
 };
 </script>
 
