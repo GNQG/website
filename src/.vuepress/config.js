@@ -7,7 +7,7 @@ module.exports = {
             lang: "ja" // this will be set as the lang attribute on <html>
         }
     },
-    title: "gnqg.dev",
+    title: "GNQG.DEV",
     description: "by ginkgo",
     plugins: [
         [
