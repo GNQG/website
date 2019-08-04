@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "vuepress dev src",
         "server": "vuepress build --dest public src && http-server public -s",
-        "build": "vuepress build --dest public src",
+        "build": "cross-env NODE_ENV=production vuepress build --dest public src",
         "lint": "eslint --rule \"prettier/prettier: 2\" --ext .js,.vue .",
         "fix": "eslint --fix --ext .js,.vue .",
         "build:plugin": "cd src/.vuepress/plugins/blog && yarn build",
@@ -17,12 +17,14 @@
     "private": true,
     "devDependencies": {
         "@vuepress/plugin-last-updated": "^1.0.0",
+        "cross-env": "^5.2.0",
         "eslint": "^6.1.0",
         "eslint-config-prettier": "^6.0.0",
         "eslint-plugin-prettier": "^3.1.0",
         "eslint-plugin-vue": "^5.2.3",
         "http-server": "^0.11.1",
         "katex": "^0.10.1",
+        "markdown-it-mathjax": "^2.0.0",
         "markdown-it-texmath": "^0.5.5",
         "moment-timezone": "^0.5.26",
         "prettier": "^1.18.2",

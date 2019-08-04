@@ -1,6 +1,53 @@
 const katex = require("katex");
 const moment = require("moment-timezone");
 
+const extendMarkdown =
+    process.env.NODE_ENV === "production"
+        ? md => {
+              md.use(require("markdown-it-texmath").use(katex), {
+                  delimiters: "dollars"
+              });
+          }
+        : md => {
+              md.use(require("markdown-it-mathjax")());
+          };
+
+const head = [
+    [
+        "link",
+        {
+            rel: "stylesheet",
+            href:
+                "https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css",
+            integrity: "sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=",
+            crossorigin: "anonymous"
+        }
+    ]
+];
+
+head.push(
+    process.env.NODE_ENV === "production"
+        ? [
+              "link",
+              {
+                  rel: "stylesheet",
+                  href: `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/${katex.version}/katex.min.css`,
+                  crossorigin: "anonymous"
+              }
+          ]
+        : [
+              "script",
+              {
+                  type: "text/javascript",
+                  src:
+                      "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML",
+                  integrity:
+                      "sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=",
+                  crossorigin: "anonymous"
+              }
+          ]
+);
+
 module.exports = {
     locales: {
         "/": {
@@ -118,30 +165,7 @@ module.exports = {
         editLinks: true
     },
     markdown: {
-        extendMarkdown: md => {
-            md.use(require("markdown-it-texmath").use(katex), {
-                delimiters: "dollars"
-            });
-        }
+        extendMarkdown
     },
-    head: [
-        [
-            "link",
-            {
-                rel: "stylesheet",
-                href: `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/${katex.version}/katex.min.css`
-            }
-        ],
-        [
-            "link",
-            {
-                rel: "stylesheet",
-                href:
-                    "https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css",
-                integrity:
-                    "sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=",
-                crossorigin: "anonymous"
-            }
-        ]
-    ]
+    head
 };
