@@ -23,28 +23,35 @@ const head = [
             crossorigin: "anonymous"
         }
     ]
-];
-
-head.push(
+].concat(
     process.env.NODE_ENV === "production"
         ? [
-              "link",
-              {
-                  rel: "stylesheet",
-                  href: `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/${katex.version}/katex.min.css`,
-                  crossorigin: "anonymous"
-              }
+              [
+                  "link",
+                  {
+                      rel: "stylesheet",
+                      href: `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/${katex.version}/katex.min.css`,
+                      crossorigin: "anonymous"
+                  }
+              ]
           ]
         : [
-              "script",
-              {
-                  type: "text/javascript",
-                  src:
-                      "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML",
-                  integrity:
-                      "sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=",
-                  crossorigin: "anonymous"
-              }
+              [
+                  "script",
+                  {
+                      type: "text/javascript",
+                      src:
+                          "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML",
+                      integrity:
+                          "sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=",
+                      crossorigin: "anonymous"
+                  }
+              ],
+              [
+                  "script",
+                  { type: "text/javascript" },
+                  "window.onload = () => MathJax.Hub.Queue(['Typeset',MathJax.Hub]);"
+              ]
           ]
 );
 
