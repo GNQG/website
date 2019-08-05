@@ -42,7 +42,7 @@
                 </div>
             </div>
             <p class="bc-description">
-                {{ page.frontmatter.description || "(no discription)" }}
+                {{ page.frontmatter.description || "(no description)" }}
             </p>
         </div>
     </div>
