@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: gnqg.dev
+heroText: GNQG.DEV
 tagline: by ginkgo
 ---
 
