@@ -1,4 +1,6 @@
 {
+    "editor.formatOnSave": false,
+    "files.autoSave": "off",
     "[vue]": {
         "editor.formatOnSave": true
     },
@@ -16,8 +18,8 @@
             "autoFix": true
         }
     ],
-    "vetur.format.enable": true,
     "prettier.eslintIntegration": true,
+    "vetur.format.enable": true,
     "vetur.format.defaultFormatter.html": "none",
     "vetur.format.defaultFormatter.js": "none",
     "vetur.format.defaultFormatter.ts": "none",

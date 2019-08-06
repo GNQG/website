@@ -5,6 +5,7 @@
         "esbenp.prettier-vscode",
         "octref.vetur",
         "thisismanta.stylus-supremacy",
+        "sysoev.language-stylus",
         "DavidAnson.vscode-markdownlint"
     ]
 }
