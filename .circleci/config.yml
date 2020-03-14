@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Deploy to Now.
           command: |
-            $(yarn global bin)/now --token=$NOW_TOKEN --target production
+            $(yarn global bin)/now --token=$NOW_TOKEN --prod --confirm
 workflows:
   publish:
     jobs:

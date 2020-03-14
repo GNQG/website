@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "name": "ginkgo-web",
     "alias": "gnqg.dev",
     "regions": ["hnd1"],
     "builds": [
