@@ -4,7 +4,6 @@
     "description": "A package for my website.",
     "scripts": {
         "dev": "vuepress dev src",
-        "server": "vuepress build --dest public src && http-server public -s",
         "build": "cross-env NODE_ENV=production vuepress build --dest public src",
         "lint": "eslint --rule \"prettier/prettier: 2\" --ext .js,.vue .",
         "fix": "eslint --fix --ext .js,.vue .",
@@ -22,7 +21,6 @@
         "eslint-config-prettier": "^6.10.0",
         "eslint-plugin-prettier": "^3.1.2",
         "eslint-plugin-vue": "^6.2.2",
-        "http-server": "^0.12.1",
         "katex": "^0.11.1",
         "markdown-it-mathjax": "^2.0.0",
         "markdown-it-texmath": "^0.6.0",
