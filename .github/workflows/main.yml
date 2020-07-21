@@ -1,0 +1,59 @@
+name: build and deploy personal website
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: build website
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      # - name: setup nodejs
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 14
+      # - name: install yarn
+      #   run: npm install -g yarn
+      - name: get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+      - name: install dependencies
+        run: yarn --frozen-lockfile
+      - name: install local plugin
+        run: yarn install:plugin && yarn build:plugin
+      - name: linting
+        run: yarn lint
+      - name: generate contents
+        run: yarn build
+      - name: save generated contents
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated-contents
+          path: |
+            public/
+            now.json
+  deploy:
+    name: deploy to Vercel
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: import generated contents
+        uses: actions/download-artifact@v2
+        with:
+          name: generated-contents
+      - name: deploy to Vercel
+        uses: amondnet/now-deployment@v2
+        with:
+          zeit-token: ${{ secrets.VERCEL_TOKEN }}
+          now-args: '--prod'
+          now-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          now-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
