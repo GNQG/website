@@ -1,0 +1,22 @@
+name: deploy www-redirect to Vercel
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - www-redirect/**
+jobs:
+  deploy-www:
+    name: deploy www-redirect to Vercel
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: deploy to Vercel
+        uses: amondnet/vercel-action@v19
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: '--prod'
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_WWW }}
+          working-directory: www-redirect
