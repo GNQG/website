@@ -1,13 +1,9 @@
 {
     "version": 2,
-    "name": "ginkgo-web-www-redirect",
-    "alias": "www.gnqg.dev",
+    "alias": ["www.gnqg.dev"],
     "regions": ["hnd1"],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "status": 301,
-            "headers": { "Location": "https://gnqg.dev/$1" }
-        }
-    ]
+    "github": {
+        "enabled": false
+    },
+    "redirects": [{ "source": "/(.*)", "destination": "https://gnqg.dev/$1" }]
 }
