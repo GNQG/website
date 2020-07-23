@@ -34,6 +34,8 @@ jobs:
         run: yarn lint
       - name: generate contents
         run: yarn build
+        env:
+          TZ: Asia/Tokyo
       - name: save generated contents
         uses: actions/upload-artifact@v2
         with:
