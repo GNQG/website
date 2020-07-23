@@ -119,9 +119,9 @@ export default {
     max-width $contentWidth
     margin 0 auto
 
-    @media (max-width: $MQNarrow)
+    @media (max-width $MQNarrow)
         padding $navbarHeight 2rem
 
-    @media (max-width: $MQMobileNarrow)
+    @media (max-width $MQMobileNarrow)
         padding $navbarHeight 1.5rem
 </style>

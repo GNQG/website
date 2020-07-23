@@ -10,15 +10,10 @@
     "[jsonc]": {
         "editor.formatOnSave": true
     },
-    "eslint.autoFixOnSave": true,
-    "eslint.validate": [
-        "javascript",
-        {
-            "language": "vue",
-            "autoFix": true
-        }
-    ],
-    "prettier.eslintIntegration": true,
+    "eslint.validate": ["javascript", "vue"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
     "vetur.format.enable": true,
     "vetur.format.defaultFormatter.html": "none",
     "vetur.format.defaultFormatter.js": "none",

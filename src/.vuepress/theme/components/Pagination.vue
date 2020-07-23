@@ -117,7 +117,7 @@ export default {
     .pgb-mobile-narrow
         display none
 
-    @media (max-width: $MQMobileNarrow)
+    @media (max-width $MQMobileNarrow)
         .pgb-mobile-narrow
             display inline-block
 

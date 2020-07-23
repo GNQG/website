@@ -30,7 +30,7 @@ export default {
         font-size 64px
         line-height 80px
 
-@media (max-width: $MQMobile)
+@media (max-width $MQMobile)
     .v-fa-icon
         padding 6px
 
@@ -42,7 +42,7 @@ export default {
             font-size 56px
             line-height 72px
 
-@media (max-width: $MQMobileNarrow)
+@media (max-width $MQMobileNarrow)
     .v-fa-icon
         padding 4px
 
