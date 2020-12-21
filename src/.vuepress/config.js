@@ -10,6 +10,7 @@ module.exports = {
     title: "GNQG.DEV",
     description: "by ginkgo",
     plugins: [
+        /*
         [
             "@vuepress/last-updated",
             {
@@ -17,7 +18,7 @@ module.exports = {
                     return moment.tz(timestamp, "Asia/Tokyo").format();
                 }
             }
-        ],
+        ], */
         [
             require("./plugins/blog"),
             {
