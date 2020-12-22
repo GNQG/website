@@ -19,6 +19,6 @@ import Pagination from "@theme/components/Pagination.vue";
 import BlogCard from "@theme/components/BlogCard.vue";
 
 export default {
-    components: { BlogLayoutBase, Pagination, BlogCard }
+    components: { BlogLayoutBase, Pagination, BlogCard },
 };
 </script>

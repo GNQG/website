@@ -16,6 +16,6 @@
 import BlogLayoutBase from "@theme/layouts/BlogLayoutBase.vue";
 
 export default {
-    components: { BlogLayoutBase }
+    components: { BlogLayoutBase },
 };
 </script>

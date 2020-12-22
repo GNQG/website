@@ -17,7 +17,7 @@ export default {
     props: {
         index: Number,
         label: String,
-        disabled: Boolean
+        disabled: Boolean,
     },
     computed: {
         isAvailable() {
@@ -29,8 +29,8 @@ export default {
         },
         link() {
             return this.$pagination.getSpecificPageLink(this.index);
-        }
-    }
+        },
+    },
 };
 </script>
 

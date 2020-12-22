@@ -80,7 +80,7 @@ export default {
         displayRange() {
             if (this.pageLength <= 5) {
                 return [...Array(Math.max(0, this.pageLength - 2)).keys()].map(
-                    i => i + 1
+                    (i) => i + 1
                 );
             } else if (this.currentIndex <= 1) {
                 return [1, 2];
@@ -90,11 +90,11 @@ export default {
                 return [
                     this.currentIndex - 1,
                     this.currentIndex,
-                    this.currentIndex + 1
+                    this.currentIndex + 1,
                 ];
             }
-        }
-    }
+        },
+    },
 };
 </script>
 

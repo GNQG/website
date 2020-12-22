@@ -4,8 +4,8 @@ const katex = require("katex");
 module.exports = {
     locales: {
         "/": {
-            lang: "ja" // this will be set as the lang attribute on <html>
-        }
+            lang: "ja", // this will be set as the lang attribute on <html>
+        },
     },
     title: "GNQG.DEV",
     description: "by ginkgo",
@@ -35,9 +35,9 @@ module.exports = {
                             getPaginationPageTitle(index, length, _key) {
                                 return `blog (page ${index + 1}/${length})`;
                             },
-                            layout: "BlogPager"
-                        }
-                    }
+                            layout: "BlogPager",
+                        },
+                    },
                 ],
                 frontmatters: [
                     {
@@ -52,11 +52,12 @@ module.exports = {
                         pagination: {
                             lengthPerPage: 4,
                             getPaginationPageTitle(index, length, key) {
-                                return `tag: ${key} (page ${index +
-                                    1}/${length}) | blog`;
+                                return `tag: ${key} (page ${
+                                    index + 1
+                                }/${length}) | blog`;
                             },
-                            layout: "BlogClassifierKeyPager"
-                        }
+                            layout: "BlogClassifierKeyPager",
+                        },
                     },
                     {
                         id: "category",
@@ -70,14 +71,15 @@ module.exports = {
                         pagination: {
                             lengthPerPage: 4,
                             getPaginationPageTitle(index, length, key) {
-                                return `category: ${key} (page ${index +
-                                    1}/${length}) | blog`;
+                                return `category: ${key} (page ${
+                                    index + 1
+                                }/${length}) | blog`;
                             },
-                            layout: "BlogClassifierKeyPager"
-                        }
-                    }
-                ]
-            }
+                            layout: "BlogClassifierKeyPager",
+                        },
+                    },
+                ],
+            },
         ],
         "remote-url",
         [
@@ -90,9 +92,9 @@ module.exports = {
                               " | " +
                               $site.title;
                 },
-                tags: $page => $page.frontmatter.tag,
-                twitterCard: _ => "summary",
-                type: $page => {
+                tags: ($page) => $page.frontmatter.tag,
+                twitterCard: (_) => "summary",
+                type: ($page) => {
                     const path = $page.regularPath;
                     if (path === "/") {
                         return "website";
@@ -103,27 +105,27 @@ module.exports = {
                     } else {
                         return "article";
                     }
-                }
-            }
-        ]
+                },
+            },
+        ],
     ],
     themeConfig: {
         domain: "https://gnqg.dev",
         nav: [
             { text: "home", link: "/" },
             { text: "about", link: "/about/" },
-            { text: "blog", link: "/blog/" }
+            { text: "blog", link: "/blog/" },
         ],
         repo: "https://github.com/GNQG/website",
         repoLabel: "Repository",
-        editLinks: true
+        editLinks: true,
     },
     markdown: {
-        extendMarkdown: md => {
+        extendMarkdown: (md) => {
             md.use(require("markdown-it-texmath").use(katex), {
-                delimiters: "dollars"
+                delimiters: "dollars",
             });
-        }
+        },
     },
     head: [
         [
@@ -134,16 +136,16 @@ module.exports = {
                     "https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css",
                 integrity:
                     "sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=",
-                crossorigin: "anonymous"
-            }
+                crossorigin: "anonymous",
+            },
         ],
         [
             "link",
             {
                 rel: "stylesheet",
                 href: `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/${katex.version}/katex.min.css`,
-                crossorigin: "anonymous"
-            }
-        ]
-    ]
+                crossorigin: "anonymous",
+            },
+        ],
+    ],
 };

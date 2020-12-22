@@ -23,8 +23,8 @@
                 <router-link :to="page.path">
                     {{
                         page.title ||
-                            page.frontmatter.title ||
-                            decodeURIComponent(page.path)
+                        page.frontmatter.title ||
+                        decodeURIComponent(page.path)
                     }}
                 </router-link>
             </div>
@@ -58,8 +58,8 @@ export default {
             return date
                 ? moment.tz(date, "Asia/Tokyo").format("YYYY-MM-DD")
                 : "XXXX-YY-ZZ";
-        }
-    }
+        },
+    },
 };
 </script>
 
