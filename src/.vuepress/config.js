@@ -25,15 +25,15 @@ module.exports = {
                 directories: [
                     {
                         id: "posts",
-                        name: "blog",
                         dirname: "_blogposts",
                         path: "/blog/",
+                        title: "blog",
                         itemPermalink: "/blog/:slug/",
                         layout: "BlogPager",
                         pagination: {
                             lengthPerPage: 4,
-                            getPaginationPageTitle(index, length, _key) {
-                                return `blog (page ${index + 1}/${length})`;
+                            getPaginationPageTitle(index, _key) {
+                                return `blog (page ${index})`;
                             },
                             layout: "BlogPager",
                         },
@@ -42,38 +42,35 @@ module.exports = {
                 frontmatters: [
                     {
                         id: "tag",
-                        name: "tag",
+                        title: "tag",
                         keys: ["tag"],
                         path: "/blog/tag/",
                         layout: "BlogClassifier",
-                        getKeyIndexPageTitle(key) {
+                        scopeLayout: "BlogClassifierKeyPager",
+                        getScopePageTitle(key) {
                             return `tag: ${key} | blog`;
                         },
                         pagination: {
                             lengthPerPage: 4,
-                            getPaginationPageTitle(index, length, key) {
-                                return `tag: ${key} (page ${
-                                    index + 1
-                                }/${length}) | blog`;
+                            getPaginationPageTitle(index, key) {
+                                return `tag: ${key} (page ${index}) | blog`;
                             },
                             layout: "BlogClassifierKeyPager",
                         },
                     },
                     {
                         id: "category",
-                        name: "category",
+                        title: "category",
                         keys: ["category"],
                         path: "/blog/category/",
                         layout: "BlogClassifier",
-                        getKeyIndexPageTitle(key) {
+                        getScopePageTitle(key) {
                             return `category: ${key} | blog`;
                         },
                         pagination: {
                             lengthPerPage: 4,
-                            getPaginationPageTitle(index, length, key) {
-                                return `category: ${key} (page ${
-                                    index + 1
-                                }/${length}) | blog`;
+                            getPaginationPageTitle(index, key) {
+                                return `category: ${key} (page ${index}) | blog`;
                             },
                             layout: "BlogClassifierKeyPager",
                         },
