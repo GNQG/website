@@ -20,7 +20,7 @@ module.exports = {
             }
         ], */
         [
-            require("./plugins/blog"),
+            "@vuepress/blog",
             {
                 directories: [
                     {

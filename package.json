@@ -15,6 +15,7 @@
     "license": "SEE LICENSE IN LICENSE.md",
     "private": true,
     "devDependencies": {
+        "@vuepress/plugin-blog": "file:./src/.vuepress/plugins/blog",
         "@vuepress/plugin-last-updated": "^1.7.1",
         "cross-env": "^7.0.3",
         "eslint": "^7.16.0",
