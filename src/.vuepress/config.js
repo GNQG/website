@@ -42,7 +42,7 @@ module.exports = {
                 frontmatters: [
                     {
                         id: "tag",
-                        title: "tag",
+                        title: "tag | blog",
                         keys: ["tag"],
                         path: "/blog/tag/",
                         layout: "BlogClassifier",
@@ -60,7 +60,7 @@ module.exports = {
                     },
                     {
                         id: "category",
-                        title: "category",
+                        title: "category | blog",
                         keys: ["category"],
                         path: "/blog/category/",
                         layout: "BlogClassifier",
