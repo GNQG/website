@@ -64,6 +64,7 @@ module.exports = {
                         keys: ["category"],
                         path: "/blog/category/",
                         layout: "BlogClassifier",
+                        scopeLayout: "BlogClassifierKeyPager",
                         getScopePageTitle(key) {
                             return `category: ${key} | blog`;
                         },
