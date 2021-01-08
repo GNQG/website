@@ -132,7 +132,6 @@ dependencies {
     implementation "com.badlogicgames.gdx:gdx-platform:${gdxVersion}:natives-desktop"
     implementation "com.badlogicgames.gdx:gdx-controllers:${gdxVersion}"
     implementation "com.badlogicgames.gdx:gdx-controllers-desktop:${gdxVersion}"
-    implementation "com.badlogicgames.gdx:gdx-controllers-lwjgl:${gdxVersion}"
     implementation "com.badlogicgames.gdx:gdx-controllers-platform:${gdxVersion}:natives-desktop"
     implementation "com.badlogicgames.gdx:gdx-freetype:${gdxVersion}"
     implementation "com.badlogicgames.gdx:gdx-freetype-platform:${gdxVersion}:natives-desktop"
