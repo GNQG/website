@@ -123,7 +123,7 @@ runtime {
 
 未圧縮状態の`build/image/`の容量は約175MB、zipに圧縮(deflate)したら約140MBだった。fat jarのサイズが80MBとかなので環境込み+本来必要ないネイティブライブラリ群(他プラットフォーム向けのffmpeg-nativeとか)込みでこの大きさだったら十分実用的じゃないかな?そういうのをを真面目に削れば100MB切りくらいは行けそうな気がする。
 
-ちなみに[beatoraja 0.8.1](https://mocha-repository.info/download.php)のLiberica JDKバンドル版は558MB。厳しい。
+ちなみに[beatoraja 0.8.1](https://mocha-repository.info/download.php)のLiberica JDK丸ごとバンドル版(多分)は558MB。厳しい。
 
 ### 実際の配布
 
