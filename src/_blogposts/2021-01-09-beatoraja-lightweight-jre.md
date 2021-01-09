@@ -34,7 +34,7 @@ plugins {
 
 まずは最低限の設定を記述する。先に書いておくけどこれだと生成は成功するがうまく起動できない。
 
-```gradle
+```groovy
 // build.gradle
 jar {
     manifest {
@@ -106,7 +106,7 @@ GitHubと通信しようとしたけどハンドシェイクが失敗、あた�
 
 プラグインにより自動で追加されるモジュールとは別に他のモジュールを追加するには[`additive`と`modules`を使えば良い](https://badass-runtime-plugin.beryx.org/releases/latest/#_properties)。
 
-```gradle
+```groovy
 // build.gradle
 runtime {
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
