@@ -77,6 +77,8 @@ public class Main {
 
 ```groovy
 // build.gradle
+mainClassName = 'bms.player.beatoraja.Main' // 修正
+
 jar {
     manifest {
         attributes('Main-Class': 'bms.player.beatoraja.Main') // 修正
