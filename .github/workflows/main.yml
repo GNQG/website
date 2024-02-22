@@ -36,6 +36,7 @@ jobs:
         run: yarn build
         env:
           TZ: Asia/Tokyo
+          NODE_OPTIONS: --openssl-legacy-provider
       - name: save generated contents
         uses: actions/upload-artifact@v2
         with:
