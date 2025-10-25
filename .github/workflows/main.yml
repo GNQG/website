@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: true
       # - name: setup nodejs
@@ -38,7 +38,7 @@ jobs:
           TZ: Asia/Tokyo
           NODE_OPTIONS: --openssl-legacy-provider
       - name: save generated contents
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: generated-contents
           path: |
@@ -50,9 +50,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: import generated contents
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: generated-contents
           path: workdir
